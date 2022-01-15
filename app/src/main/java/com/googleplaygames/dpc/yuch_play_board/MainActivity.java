@@ -1,17 +1,11 @@
 package com.googleplaygames.dpc.yuch_play_board;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.yodo1.mas.Yodo1Mas;
-import com.yodo1.mas.error.Yodo1MasError;
-import com.yodo1.mas.helper.model.Yodo1MasAdBuildConfig;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -33,22 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Yodo1MasAdBuildConfig config =
-                new Yodo1MasAdBuildConfig.Builder().enableUserPrivacyDialog(true).build();
-        Yodo1Mas.getInstance().setAdBuildConfig(config);
-
-        Yodo1Mas.getInstance().init(this, "L3QFoZViBG", new Yodo1Mas.InitListener() {
-            @Override
-            public void onMasInitSuccessful() {
-
-            }
-
-            @Override
-            public void onMasInitFailed(@NonNull Yodo1MasError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         result = findViewById(R.id.result);
 
